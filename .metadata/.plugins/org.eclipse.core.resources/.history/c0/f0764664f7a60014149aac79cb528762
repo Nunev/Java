@@ -1,0 +1,44 @@
+package hangman;
+
+import java.util.Scanner;
+
+public class Console {
+
+	public static void main(String[] args) {
+		Scanner cons = new Scanner(System.in);
+		System.out.println("Welcome to Hangman\n");
+		System.out.println("Guess the word:\n");
+		
+		boolean more = true;
+		String word = "test";
+		String init = word.substring(0,1) + repeat("*",word.length()-2) + word.substring(word.length()-1);
+		
+		while(more) {
+			System.out.println(init);
+			char letter = cons.next().charAt(0);
+			for (int i = 0; i < init.length(); i++) {
+				if (letter == word.charAt(i)) {
+					init = init.substring(0,i)+'x'+init.substring(init.length());
+				};
+				if(!init.contains("*")) {
+					more=false;
+				}
+			}
+			
+		}
+		
+		cons.close();
+	}
+
+	public static String repeat(String s, int n) {
+	    if(s == null) {
+	        return null;
+	    }
+	    final StringBuilder sb = new StringBuilder(s.length() * n);
+	    for(int i = 0; i < n; i++) {
+	        sb.append(s);
+	    }
+	    return sb.toString();
+	}
+
+}

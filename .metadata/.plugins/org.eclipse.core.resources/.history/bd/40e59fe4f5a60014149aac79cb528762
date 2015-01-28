@@ -1,0 +1,16 @@
+package hangman;
+
+import java.util.Scanner;
+
+public class Console {
+
+	public static void main(String[] args) {
+		Scanner cons = new Scanner(System.in);
+		System.out.println("Welcome to Hangman\n");
+		System.out.println("Guess the word:\n");
+		System.out.println("T**t");
+		
+		cons.close();
+	}
+
+}
